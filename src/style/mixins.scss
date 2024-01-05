@@ -1,0 +1,31 @@
+/**
+ * flex 布局
+ * @param {string} $direction flex-direction
+ * @param {string} $justify justify-content
+ * @param {string} $align align-items
+ * @param {string} $wrap flex-wrap
+ * @param {string} $gap gap
+ */
+@mixin flex-center($direction: row, $justify: center, $align: center, $wrap: nowrap, $gap: 0) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+/**
+ * 超出范围三点省略
+ * @param {number} $n 显示行数
+ */
+@mixin ellipsis($n) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $n>1 {
+    display: -webkit-box;
+    -webkit-line-clamp: $n;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,24 @@
+# 统一不同 IDE 编辑器的编码风格
+root = true
+
+# 所有文件适用规则
+[*]
+# 缩进风格（tab || space）
+indent_style = space
+# 控制换行类型(lf || cr || crlf)
+end_of_line = lf
+# 文件字符集
+charset = utf-8
+# 去除行首的空白字符
+trim_trailing_whitespace = true
+# 始终在文件末尾插入一个新行
+insert_final_newline = true
+
+# md文件适用规则
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
+
+# 仅 ts、js、vue、css 文件适用规则
+[*.{ts,js,vue,css}]
+indent_size = 2
