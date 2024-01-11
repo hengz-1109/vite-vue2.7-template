@@ -253,3 +253,10 @@ npm run build
 ### 集成 [cz-git](https://cz-git.qbb.sh/zh/)
 
 <img src="https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif" style="margin: 0 1em; width: 100% - 2em;" />
+
+
+## 坑
+
+### vite-plugin-mock
+
+> `vite-plugin-mock@2.9.8` 对应 `path-to-regexp@4.0.5`

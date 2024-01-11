@@ -1,6 +1,7 @@
 <!--  -->
 <script setup>
 import { ref } from 'vue';
+import { useLayoutStore } from '@/store/index.js';
 // 接口功能测试
 import { artistList } from '@/api/test.js';
 
@@ -9,6 +10,8 @@ import { debounce, throttle } from '@/utils/index.js';
 
 // 国际化
 import { changeLanguage } from '@/locale/index.js';
+
+console.log('store', useLayoutStore());
 
 (async () => {
   const res = await artistList();
@@ -57,7 +60,7 @@ const closeThrottle = () => {
 <template>
   <div class="tst">
     <p>
-      <SvgIcon name="logo" width="30px" height="30px" />
+      <SvgIcon name="vite" width="30px" height="30px" />
     </p>
 
     <p>

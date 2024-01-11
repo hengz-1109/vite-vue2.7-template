@@ -23,8 +23,10 @@ Vue.use(ElementUI, { size: 'small', zIndex: 2000, i18n: (key, value) => I18n.t(k
 
 Vue.use(globalComponent);
 
-export default new Vue({
+const app = new Vue({
   router,
   i18n: I18n,
   render: (h) => h(App),
 }).$mount('#app');
+
+export default app;

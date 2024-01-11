@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { Config } from '@/settings';
+import defaultSettings from '@/settings';
 
 // 创建请求实例
 export const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   // 指定请求超时的毫秒数
-  timeout: Config.timeout,
+  timeout: defaultSettings.timeout,
   // 表示跨域请求时是否需要使用凭证
   withCredentials: false,
 });

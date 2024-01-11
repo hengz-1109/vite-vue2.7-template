@@ -5,7 +5,7 @@ import zhLocale from 'element-ui/lib/locale/lang/zh-CN';
 import en from './lang/en.js';
 import zh from './lang/zh.js';
 
-import App from '@/main.js';
+import app from '@/main.js';
 
 Vue.use(VueI18n);
 
@@ -25,7 +25,7 @@ const I18n = new VueI18n({
  */
 function changeLanguage(type) {
   if (Object.keys(messages).includes(type)) {
-    App.$i18n.locale = type;
+    app.$i18n.locale = type;
   }
 }
 

@@ -29,6 +29,14 @@ module.exports = {
         ignorePseudoElements: ['v-deep'],
       },
     ],
+    // 忽略scss属性导出
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['export'],
+      },
+    ],
+    'property-no-unknown': [null],
     // 禁止空注释
     'comment-no-empty': true,
     // 禁止简写属性的冗余值
@@ -73,7 +81,7 @@ module.exports = {
     // 不允许未知单位
     'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
     // 标记 CSS 规范中未知属性值
-    'declaration-property-value-no-unknown': true,
+    // 'declaration-property-value-no-unknown': true,
     // 指定关键帧名称的模式
     'keyframes-name-pattern': null,
     // 指定类选择器的模式
