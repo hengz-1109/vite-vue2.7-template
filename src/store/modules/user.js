@@ -10,7 +10,6 @@ import { login as loginRequest, logout as logoutRequest, getInfo as getInfoReque
 export default defineStore('user', () => {
   const token = ref(getToken());
   const name = ref('');
-  const avatar = ref('');
   const introduction = ref('');
   const roles = ref([]);
 
@@ -41,17 +40,13 @@ export default defineStore('user', () => {
             reject('验证失败，请重新登录。');
           }
 
-          const { roles, name, avatar, introduction } = data;
-
-          if (!roles || roles.length <= 0) {
+          if (!data.roles || data.roles.length <= 0) {
             // eslint-disable-next-line prefer-promise-reject-errors
             reject('getInfo: 角色必须是非null数组!');
           }
-
-          roles.value = roles;
-          name.value = name;
-          avatar.value = avatar;
-          introduction.value = introduction;
+          roles.value = data.roles;
+          name.value = data.name;
+          introduction.value = data.introduction;
           resolve(data);
         })
         .catch((error) => {
@@ -100,7 +95,9 @@ export default defineStore('user', () => {
 
     const permissionStore = usePermissionStore();
     const accessRoutes = await permissionStore.generateRoutes(roles);
-    router.addRoutes(accessRoutes);
+    accessRoutes.forEach((route) => {
+      router.addRoute(route);
+    });
 
     const layoutStore = useLayoutStore();
     layoutStore.delAllViews();
@@ -109,7 +106,6 @@ export default defineStore('user', () => {
   return {
     token,
     name,
-    avatar,
     introduction,
     roles,
     login,

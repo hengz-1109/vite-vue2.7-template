@@ -28,7 +28,7 @@
 <script>
 import path from 'path-browserify';
 import ScrollPane from './ScrollPane.vue';
-import { useLayoutStore } from '@/store';
+import { useLayoutStore, usePermissionStore } from '@/store';
 
 export default {
   components: { ScrollPane },
@@ -45,11 +45,14 @@ export default {
     layoutStore() {
       return useLayoutStore();
     },
+    permissionStore() {
+      return usePermissionStore();
+    },
     visitedViews() {
       return this.layoutStore.visitedViews;
     },
     routes() {
-      return this.$store.state.permission.routes;
+      return this.permissionStore.routes;
     },
   },
   watch: {

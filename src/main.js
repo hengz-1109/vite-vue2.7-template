@@ -11,6 +11,8 @@ import App from './App.vue';
 import router from './router';
 import { I18n } from './locale';
 
+import './permission';
+
 import 'virtual:svg-icons-register';
 
 import './style/global.scss';

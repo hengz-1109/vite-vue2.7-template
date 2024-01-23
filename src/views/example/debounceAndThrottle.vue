@@ -2,7 +2,7 @@
 <script setup></script>
 
 <template>
-  <div></div>
+  <div>debounceAndThrottle</div>
 </template>
 
 <style scoped lang="scss"></style>

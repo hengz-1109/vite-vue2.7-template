@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { useLayoutStore } from '@/store/index.js';
+import { useLayoutStore, usePermissionStore } from '@/store/index.js';
 import Logo from './Logo.vue';
 import SidebarItem from './SidebarItem.vue';
 import variables from '@/style/layout.module.scss';
@@ -30,16 +30,18 @@ export default {
     layoutStore() {
       return useLayoutStore();
     },
+    permissionStore() {
+      return usePermissionStore();
+    },
     sidebar() {
       return this.layoutStore.sidebar;
     },
     routes() {
-      return this.$router.options.routes;
+      return this.permissionStore.routes;
     },
     activeMenu() {
       const route = this.$route;
       const { meta, path } = route;
-      // if set path, the sidebar will highlight the path you set
       if (meta.activeMenu) {
         return meta.activeMenu;
       }
